@@ -17,11 +17,16 @@ public class WiremockstubApplication {
     Stubs stubs;
 
     @Autowired
-    DataMapper dataMapper;
+    ResponseBodyMapper responseBodyMapper;
+
+    @Autowired
+    RequestBodyMapper requestBodyMapper;
 
     @PostConstruct
     public void startServerMock(){
-        stubs.setUp().stubForGetCustomer(dataMapper.getCustomer200());
+        stubs.setUp()
+                .stubForGetCustomer(responseBodyMapper.getCustomer200())
+                .stubForAddCustomer(requestBodyMapper.getCustomer201(), responseBodyMapper.getCustomer());
     }
 
 }

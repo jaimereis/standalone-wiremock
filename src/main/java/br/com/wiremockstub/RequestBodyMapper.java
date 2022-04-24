@@ -7,12 +7,11 @@ import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 
 @Component
-public class DataMapper {
+public class RequestBodyMapper {
 
     @Getter
     @Setter
-    @Value("classpath:__files/json/customer_200.json")
-    private Resource customer200;
-
+    @Value("classpath:__files/json/request/customer_201.json")
+    private Resource customer201;
 
 }
